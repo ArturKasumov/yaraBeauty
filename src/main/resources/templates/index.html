@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.springframework.org/security/tags"
+      xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="utf-8">
+    <title>YaraBeauty</title>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/popup.css">
+    <link rel="stylesheet" type="text/css" href="/css/scroll.css">
+    <link rel="stylesheet" type="text/css" href="/css/drop.css">
+    <script src="https://use.fontawesome.com/649750adc1.js"></script>
+    <script src="./js/scripts.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="./js/scroll.js"></script>
+    <script src="./js/fastscrolling.js"></script>
+    <script src="./js/dropdown.js"></script>
+</head>
+
+<body>
+
+<header class="header" id="header">
+    <div class="container">
+        <div class="header_inner">
+            <p class="logo">YaraBeauty</p>
+            <div class=navigation_header>
+                <a class="nav_link_header" href="#aboutus">About us</a>
+                <a class="nav_link_header" href="#gallery">Gallery</a>
+                <a class="nav_link_header" href="#ourMasters">Masters</a>
+                <a class="nav_link_header" href="#contacts">Contacts</a>
+            </div>
+            <div class="authority">
+                <a sec:authorize="!isAuthenticated()" class="nav_link_header" href="/login">LOG IN</a>
+                <div>
+                    <form sec:authorize="isAuthenticated()" th:action="@{/logout}" method="post">
+                        <input class="f"  type="submit" value="LOG OUT"/>
+                    </form>
+                </div>
+                <p sec:authorize="hasRole('ROLE_USER')" th:inline="text">[[${#httpServletRequest.remoteUser}]]
+                <div sec:authorize="hasRole('ROLE_ADMIN')" class="dropdown">
+                    <button th:inline="text" onclick="myFunction()" class="dropbtn">ADMIN</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <a href="/allusers">All users</a>
+                        <a href="/appointments">Appointments</a>
+                    </div>
+                </div>
+                </p>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="introduction" id="introduction">
+    <div class="container">
+        <div class="introduction_inner">
+            <div class="leftpart_intr">
+                <h1>Welcome to YaraBeauty</h1>
+                <h2>It`s time to clean the feathers</h2>
+                <div class="appointment">
+                    <a href="/makeappointment">Make appointment</a>
+                </div>
+                <h3>Beauty salons in Ukraine</h3>
+                <ul>
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                </ul>
+            </div>
+            <div class="rightpart_intr">
+                <div class="pic1"></div>
+                <div class="pic2"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="about_us" id="aboutus">
+    <div class="container">
+        <div class="about_us_container">
+            <p class="label">ABOUT US</p>
+            <h3>what you need to know</h3>
+            <h1>about YaraBeauty</h1>
+            <div class="info_about_us">
+                <div class="info_about_us_left">
+                    <ul>
+                        <li>
+                            <button id="btn_equipment" onclick="showEquipment()">Equipment</button>
+                        </li>
+                        <li>
+                            <button id="btn_service" onclick="showService()">Service</button>
+                        </li>
+                        <li>
+                            <button id="btn_atmosphere" onclick="showAtmosphere()">Atmosphere</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="info_about_us_right">
+
+
+                    <div id="info_about_us_right_part1">
+                        <ol>
+                            <li>
+                                <div>
+                                    <h1>
+                                        We use medical sterilization.</h1>
+                                    <p>Autoclaves <b>IS YESON</b> - this means you don't have to worry
+                                        for the safety of doing services with us.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h1>
+                                        Modern equipment.</h1>
+                                    <p>Hair dryers <b>Dyson</b> -
+                                        this means that when styling your hair
+                                        will retain their natural shine and will not be damaged.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h1>Cosmetics of proven brands.</h1>
+                                    <p>We have selected the means that give results. For
+                                        us the issue of quality of cosmetics number 1, as it is a guarantee of quality services.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h1>
+                                        The newest cutting techniques.</h1>
+                                    <p>We are aware of what girls and boys wear
+                                        from the covers. We do their hair.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+
+                    <div id="info_about_us_right_part2">
+                        <ol>
+                            <li>
+                                <div>
+                                    <h1>
+                                        High quality service.</h1>
+                                    <p>Which is reflected not only in the attention to guests,
+                                        but also in the ultimate benefit for everyone</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h1>We have more than 100 types of services in our arsenal.</h1>
+                                    <p>In our arsenal there are <b>more than 100 types</b> of services in the areas
+                                        hairdressing, make-up, nail aesthetics and cosmetology.
+                                    </p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h1>A team of highly qualified masters.</h1>
+                                    <p>Who love their craft. Masters with experience up to 20 years -
+                                        and this experience is at your disposal.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h1>Exceptional quality of service at the prices of regular salons.</h1>
+                                    <p>Exceptional quality of service at the prices of regular salons.
+                                        It is one of our missions to create an imbalance in price and quality.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h1>Detailed diagnostics for the selection of the ideal image.</h1>
+                                    <p>We will not just do you a service, but we will tell you what will be the best option.
+                                        just for you, taking into account all the individual characteristics and preferences in
+                                        style.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+
+                    <div id="info_about_us_right_part3">
+                        <ol>
+                            <li>
+                                <div>
+                                    <h1>Simple, friendly and non-judgmental atmosphere.</h1>
+                                    <p>For us personally, this is a very important point. After all, our work
+                                        this is a big part of our life.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h1>We do 2-3 services at the same time.</h1>
+                                    <p>We try to save your time as much as possible.</p>
+                                </div>
+                            </li>
+                            <li>
+                                <div>
+                                    <h1>We work until the last client.</h1>
+                                    <p>We can open the entire salon earlier and call the necessary masters
+                                        for you or we will stay at any time at
+                                        necessary, for the sake of your impeccable style.</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="gallery" id="gallery">
+    <div class="container">
+        <div class="gallery_container">
+            <div class="gallery_inner">
+                <div class="info_gallary">
+                    <p class="label">OUR PICTURES</p>
+                </div>
+                <div class="items-row">
+                    <div class="item img1"></div>
+                    <div class="item img2"></div>
+                    <div class="item img3"></div>
+                    <div class="item img4"></div>
+                    <div class="item img5"></div>
+                    <div class="item img6"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="ourWorkers" id="ourMasters">
+    <div class="container">
+        <div class="ourWorkers_inner">
+            <h6 class="label">OUR MASTERS</h6>
+            <div class="imageBox">
+                <div class="outline">
+                    <div class="imageBox_1">
+                        <img th:src="@{images/master_1.jpg}" alt="Master">
+                        <h3>Ярослава Кадыгроб</h3>
+                        <p>Makeup master<br>Eyebrow master</p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="outline">
+                    <div class="imageBox_2">
+                        <img th:src="@{images/master_2.jpg}" alt="Master">
+                        <h3>Валентина Петрова</h3>
+                        <p>Makeup master</p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="outline">
+                    <div class="imageBox_3">
+                        <img th:src="@{images/master_3.jpg}" alt="Master">
+                        <h3>Дарья Козлова</h3>
+                        <p>Eyebrow master</p>
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter-square"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="contacts" id="contacts">
+    <div class="container">
+        <div class="contacts_inner">
+            <div class="contacts_inner_left">
+                <p class="logo">YaraBeauty</p>
+                <div class="links_contacts">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contacts_inner_right">
+                <div class="contacts_inner_right_left">
+                    <div class="col">
+                        <p>Salon</p>
+                        <ul>
+                            <li><a href="#">Prices</a></li>
+                            <li><a href="#">School</a></li>
+                            <li><a href="#">We are in Kharkiv</a></li>
+                        </ul>
+                    </div>
+                    <div class="col">
+                        <p class="contacts_informations">Information</p>
+                        <ul>
+                            <li><a href="#">Gift certificates</a></li>
+                            <li><a href="#">Franchise</a></li>
+                            <li><a href="#">Vacancies</a></li>
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">Contacts</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contacts_inner_right_right">
+                    <div class="col">
+                        <p class="contacts_salons_title">Salons</p>
+                        <p class="contacts_salons_city">Kharkiv</p>
+                        <ul>
+                            <li><a href="#">
+                                Prospect Science 9</a></li>
+                            <li><a href="#">st. Pushkinskaya 50/52</a></li>
+                        </ul>
+                        <p class="contacts_salons_city">Kiev</p>
+                        <ul>
+                            <li><a href="#">
+                                Prospect Science 9</a></li>
+                            <li><a href="#">st. Pushkinskaya 50/52</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="scroll-top">
+    <button><span data-hover="Up"><i class="fa fa-arrow-up"></i></span></button>
+</div>
+
+</body>
+</html>

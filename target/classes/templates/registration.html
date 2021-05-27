@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link rel="stylesheet" type="text/css" href="/css/registration.css">
+
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h2>Create Account</h2>
+    </div>
+    <form id="form" class="form" th:action="@{/registration}" th:object="${user}" method="post">
+        <div class="form-control">
+            <label>Username</label>
+            <input th:class="${#fields.hasErrors('username')}? fieldError" type="text" name="username" placeholder="username" th:field="*{username}"  />
+            <div class = "error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></div>
+            <div class="userExists" th:text="${username}"></div>
+        </div>
+
+        <div class="form-control">
+            <label>Password</label>
+            <input th:class="${#fields.hasErrors('username')}? fieldError" type="password" name="password" placeholder="password" th:field="*{password}"/>
+            <div class = "error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
+        <div class="form-control">
+            <label>Password confirm</label>
+            <input type="password" name="passwordConfirm" placeholder="password confirm" th:field="*{passwordConfirm}"/>
+            <div class="passwordConfirmError" th:text="${passwordConfirm}"></div>
+        </div>
+        <button type="submit">Submit</button>
+        <div class="nav">
+        <a href="/login" class="forget">Back</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

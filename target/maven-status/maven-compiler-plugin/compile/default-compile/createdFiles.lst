@@ -1,0 +1,12 @@
+com\yarabeauty\config\MvcConfig.class
+com\yarabeauty\controller\RegistrationController.class
+com\yarabeauty\Application.class
+com\yarabeauty\config\WebSecurityConfig.class
+com\yarabeauty\repo\UserRepository.class
+com\yarabeauty\repo\AppointmentRepo.class
+com\yarabeauty\controller\MainController.class
+com\yarabeauty\service\UserService.class
+com\yarabeauty\config\ThymeleafConfig.class
+com\yarabeauty\domain\User.class
+com\yarabeauty\domain\Role.class
+com\yarabeauty\domain\Appointment.class

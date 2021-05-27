@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/popup.css">
+</head>
+<body>
+<div id="popup" class="popup">
+    <div class="popup_body">
+        <div class="popup_content">
+            <div class="popup_title">
+                <a href="/" class="popup_close">x</a>
+                <h3>Make Appointment</h3>
+            </div>
+            <form th:action="@{/makeappointment}" method="POST">
+                <p class="form_titles">Как к вам обращаться?</p>
+                <input type="text" class="form_control" name="name">
+                <p class="form_titles">Номер телефона</p>
+                <input type="text" class="form_control" name="phone">
+                <p class="form_titles">Комментарий</p>
+                <input type="text" class="form_control" name="comment">
+                <button id="form_btn" type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

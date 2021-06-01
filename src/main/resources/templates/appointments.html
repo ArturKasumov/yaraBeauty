@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All appointments</title>
+</head>
+<body>
+<h3>All appointments</h3>
+<table>
+    <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>phone</th>
+        <th>comment</th>
+    </tr>
+    <tr th:each="appointment : ${appointments}">
+        <td th:text="${appointment.id}"></td>
+        <td th:text="${appointment.name}"></td>
+        <td th:text="${appointment.phone}"></td>
+        <td th:text="${appointment.comment}"></td>
+    </tr>
+</table>
+</body>
+</html>

@@ -5,7 +5,7 @@ import com.yarabeauty.domain.User;
 import com.yarabeauty.repo.UserRepository;
 import com.yarabeauty.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -14,14 +14,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 import javax.validation.Valid;
-import java.util.Collections;
 
 @Controller
 public class RegistrationController {
     @Autowired
     private UserService userService;
-
 
     @GetMapping("/registration")
     public String registration(Model model) {
@@ -45,5 +44,4 @@ public class RegistrationController {
         }
         return "redirect:/";
     }
-
 }

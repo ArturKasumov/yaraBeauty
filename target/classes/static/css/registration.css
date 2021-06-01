@@ -20,6 +20,13 @@
 .userExists{
     color:#f72514;
 }
+.remember input{
+    display: inline;
+}
+.remember p{
+    display: inline;
+    color: #ff6608;
+}
 
 body {
     background-color: #7e6e60;
@@ -70,7 +77,6 @@ label{
     color:#fff;
 }
 .form-control input {
-    /*border: 2px solid #f0f0f0;*/
     border-radius: 4px;
     display: block;
     font-family: inherit;

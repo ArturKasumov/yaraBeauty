@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
 import java.util.List;
 
 @Controller
@@ -15,9 +16,10 @@ public class AdminController {
     private AppointmentRepo appointmentRepo;
 
     @GetMapping("/appointments")
-    public String appointments(Model model){
+    public String appointments(Model model) {
         List<Appointment> appointmentList = appointmentRepo.findAll();
-        model.addAttribute("appointments",appointmentList);
+        model.addAttribute("appointments", appointmentList);
         return "appointments";
     }
+
 }
